@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 
 logging.basicConfig(level=logging.INFO)
 
@@ -45,3 +46,13 @@ def square_root(a: int | float) -> int | float:
         raise ValueError("Value must be a number")
     logging.info(f"Square root of {a}")
     return a ** 0.5
+
+
+def log_action(action: str, user: str = "default"):
+    timestamp = datetime.now().isoformat()
+    record = {"time": timestamp, "user": user, "actions": action}
+
+    with open("history.json", "a") as f:
+        f.write(f"{record}\n")
+
+    logging.info(f"Logged action: {action} by {user}")
