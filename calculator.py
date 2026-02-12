@@ -56,3 +56,10 @@ def log_action(action: str, user: str = "default"):
         f.write(f"{record}\n")
 
     logging.info(f"Logged action: {action} by {user}")
+
+
+def square_area(a: int | float) -> int | float:
+    if not isinstance(a, (int, float)):
+        raise ValueError("Value must be a number")
+    logging.info(f"Square area of {a}")
+    return a ** 2
