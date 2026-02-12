@@ -43,5 +43,7 @@ def square(a: int | float) -> int | float:
 def square_root(a: int | float) -> int | float:
     if not isinstance(a, (int, float)):
         raise ValueError("Value must be a number")
+    if a < 0:
+        raise ValueError("Value must be more than 0")
     logging.info(f"Square root of {a}")
     return a ** 0.5
